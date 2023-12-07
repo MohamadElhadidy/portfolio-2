@@ -13,7 +13,7 @@ import { a } from '@react-spring/three'
 
 import islandScene from '../assets/3d/island.glb';
 
-export default function Island({ isRotating, setIsRotating, setCurrentStage , ...props }) {
+export default function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
   const islandRef = useRef();
 
   const { nodes, materials } = useGLTF(islandScene);
@@ -38,7 +38,7 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage , ..
     e.preventDefault()
     setIsRotating(false)
 
-   
+
   }
 
   const handlePointerMove = (e) => {
@@ -58,9 +58,11 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage , ..
     if (e.key === 'ArrowLeft') {
       if (!isRotating) setIsRotating(true)
       islandRef.current.rotation.y += 0.01 * Math.PI
+      rotationSpeed.current = 0.0125;
     } else if (e.key === 'ArrowRight') {
       if (!isRotating) setIsRotating(true)
       islandRef.current.rotation.y -= 0.01 * Math.PI
+      rotationSpeed.current = -0.0125;
     }
   }
   const handleKeyUp = (e) => {

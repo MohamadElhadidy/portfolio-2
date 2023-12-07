@@ -66,9 +66,9 @@ function Home() {
             setCurrentStage={setCurrentStage}
           />
           <Plane
-            planeScale={planeScale}
+            scale={planeScale}
             rotation={[0, 20, 0]}
-            planePosition={planePosition}
+            position={planePosition}
             isRotating={isRotating}
           />
         </Suspense>
